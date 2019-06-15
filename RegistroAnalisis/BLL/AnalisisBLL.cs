@@ -43,14 +43,15 @@ namespace RegistroAnalisis.BLL
             try
             {
                 var Anterior = db.Analisis.Find(analisis.AnalisisId);
-                foreach (var item in Anterior.detalle)
+                foreach (var item in analisis.detalle)
                 {
+
                     if (!analisis.detalle.Exists(d => d.AnalisisDetalleId == item.AnalisisDetalleId))
                         db.Entry(item).State = EntityState.Deleted;
                 }
                 db.Entry(analisis).State = EntityState.Modified;
-                paso = (db.SaveChanges() > 0);
 
+                paso = (db.SaveChanges() > 0);
             }
             catch (Exception)
             {
@@ -61,10 +62,9 @@ namespace RegistroAnalisis.BLL
                 db.Dispose();
             }
             return paso;
-
         }
 
-
+          
         public static bool Eliminar(int id)
         {
             bool paso = false;

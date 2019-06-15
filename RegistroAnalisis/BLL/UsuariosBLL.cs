@@ -63,9 +63,11 @@ namespace RegistroAnalisis.BLL
         {
             bool paso = false;
             Contexto db = new Contexto();
+
             try
             {
                 var eliminar = db.Usuarios.Find(id);
+
                 db.Entry(eliminar).State = EntityState.Deleted;
                 paso = (db.SaveChanges() > 0);
             }
@@ -73,6 +75,7 @@ namespace RegistroAnalisis.BLL
             {
                 throw;
             }
+
             finally
             {
                 db.Dispose();
@@ -85,7 +88,6 @@ namespace RegistroAnalisis.BLL
         {
             Usuarios usuarios = new Usuarios();
             Contexto db = new Contexto();
-
 
             try
             {

@@ -48,7 +48,7 @@ namespace RegistroAnalisis.UI.Registro
         {
             Analisis analisis = new Analisis();
             analisis.AnalisisId = Convert.ToInt32(IdnumericUpDown.Value);
-            analisis.UsuarioId = Convert.ToInt32(UsuariocomboBox.Text);
+            analisis.UsuarioId = Convert.ToInt32(UsuariocomboBox.SelectedValue);
             analisis.Fecha = FechadateTimePicker.Value;
             analisis.detalle = this.Detalle;
             return analisis;
@@ -58,6 +58,7 @@ namespace RegistroAnalisis.UI.Registro
         private void LlenaCampo(Analisis analisis)
         {
             IdnumericUpDown.Value = analisis.UsuarioId;
+            IdnumericUpDown.Value = analisis.AnalisisId;
             FechadateTimePicker.Value = analisis.Fecha;
             UsuariocomboBox.Text = analisis.UsuarioId.ToString();
             this.Detalle = analisis.detalle;
@@ -71,7 +72,7 @@ namespace RegistroAnalisis.UI.Registro
             var lista = new List<Usuarios>();
             lista = UsuariosBLL.GetList(p => true);
             UsuariocomboBox.DataSource = lista;
-            UsuariocomboBox.DisplayMember = "UsuarioId";
+            UsuariocomboBox.DisplayMember = "Usuario";
             UsuariocomboBox.ValueMember = "UsuarioId";
         }
 
@@ -81,10 +82,8 @@ namespace RegistroAnalisis.UI.Registro
             var lista2 = new List<TipoAnalisis>();
             lista2 = TipoAnalalisisBLL.GetList(l => true);
             TipoAnalisiscomboBox.DataSource = lista2;
-            TipoAnalisiscomboBox.DisplayMember = "TipoId";
+            TipoAnalisiscomboBox.DisplayMember = "Descripcion";
             TipoAnalisiscomboBox.ValueMember = "TipoId";
-
-
         }
 
 
@@ -145,6 +144,7 @@ namespace RegistroAnalisis.UI.Registro
                     MessageBox.Show("No se puede modificar una persona que no existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                MessageBox.Show("Modificado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 paso = AnalisisBLL.Modificar(analisis);
 
             }
@@ -181,7 +181,7 @@ namespace RegistroAnalisis.UI.Registro
             }
             else
             {
-                MessageBox.Show("Producto no existe");
+                MessageBox.Show("Usuario no existe");
             }
         }
 
