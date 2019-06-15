@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.UsuariocomboBox = new System.Windows.Forms.ComboBox();
             this.EliminarButton = new System.Windows.Forms.Button();
             this.BuscarButton = new System.Windows.Forms.Button();
@@ -44,10 +45,12 @@
             this.ResultadotextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.detalleDataGridView = new System.Windows.Forms.DataGridView();
-            this.AgregarTiposAnalisisbutton = new System.Windows.Forms.Button();
+            this.AgregarTiposAnalisisButton = new System.Windows.Forms.Button();
             this.RemoverButton = new System.Windows.Forms.Button();
+            this.MyErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.detalleDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // UsuariocomboBox
@@ -70,6 +73,7 @@
             this.EliminarButton.Text = "Eliminar";
             this.EliminarButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.EliminarButton.UseVisualStyleBackColor = true;
+            this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
             // 
             // BuscarButton
             // 
@@ -82,6 +86,7 @@
             this.BuscarButton.Text = "Buscar";
             this.BuscarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BuscarButton.UseVisualStyleBackColor = true;
+            this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
             // 
             // GuardarButton
             // 
@@ -94,6 +99,7 @@
             this.GuardarButton.Text = "Guardar";
             this.GuardarButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.GuardarButton.UseVisualStyleBackColor = true;
+            this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click);
             // 
             // NuevoButton
             // 
@@ -106,6 +112,7 @@
             this.NuevoButton.Text = "Nuevo";
             this.NuevoButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.NuevoButton.UseVisualStyleBackColor = true;
+            this.NuevoButton.Click += new System.EventHandler(this.NuevoButton_Click);
             // 
             // FechadateTimePicker
             // 
@@ -172,6 +179,7 @@
             this.Agregarbutton.Size = new System.Drawing.Size(24, 20);
             this.Agregarbutton.TabIndex = 7;
             this.Agregarbutton.UseVisualStyleBackColor = true;
+            this.Agregarbutton.Click += new System.EventHandler(this.Agregarbutton_Click);
             // 
             // label4
             // 
@@ -211,14 +219,14 @@
             this.detalleDataGridView.Size = new System.Drawing.Size(280, 119);
             this.detalleDataGridView.TabIndex = 6;
             // 
-            // AgregarTiposAnalisisbutton
+            // AgregarTiposAnalisisButton
             // 
-            this.AgregarTiposAnalisisbutton.Location = new System.Drawing.Point(146, 169);
-            this.AgregarTiposAnalisisbutton.Margin = new System.Windows.Forms.Padding(2);
-            this.AgregarTiposAnalisisbutton.Name = "AgregarTiposAnalisisbutton";
-            this.AgregarTiposAnalisisbutton.Size = new System.Drawing.Size(24, 20);
-            this.AgregarTiposAnalisisbutton.TabIndex = 8;
-            this.AgregarTiposAnalisisbutton.UseVisualStyleBackColor = true;
+            this.AgregarTiposAnalisisButton.Location = new System.Drawing.Point(146, 169);
+            this.AgregarTiposAnalisisButton.Margin = new System.Windows.Forms.Padding(2);
+            this.AgregarTiposAnalisisButton.Name = "AgregarTiposAnalisisButton";
+            this.AgregarTiposAnalisisButton.Size = new System.Drawing.Size(24, 20);
+            this.AgregarTiposAnalisisButton.TabIndex = 8;
+            this.AgregarTiposAnalisisButton.UseVisualStyleBackColor = true;
             // 
             // RemoverButton
             // 
@@ -228,6 +236,11 @@
             this.RemoverButton.Size = new System.Drawing.Size(24, 20);
             this.RemoverButton.TabIndex = 23;
             this.RemoverButton.UseVisualStyleBackColor = true;
+            this.RemoverButton.Click += new System.EventHandler(this.RemoverButton_Click);
+            // 
+            // MyErrorProvider
+            // 
+            this.MyErrorProvider.ContainerControl = this;
             // 
             // rAnalisis
             // 
@@ -236,7 +249,7 @@
             this.ClientSize = new System.Drawing.Size(354, 450);
             this.Controls.Add(this.RemoverButton);
             this.Controls.Add(this.detalleDataGridView);
-            this.Controls.Add(this.AgregarTiposAnalisisbutton);
+            this.Controls.Add(this.AgregarTiposAnalisisButton);
             this.Controls.Add(this.UsuariocomboBox);
             this.Controls.Add(this.Agregarbutton);
             this.Controls.Add(this.ResultadotextBox);
@@ -256,6 +269,7 @@
             this.Text = "rAnalisis";
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.detalleDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,7 +293,8 @@
         private System.Windows.Forms.TextBox ResultadotextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView detalleDataGridView;
-        private System.Windows.Forms.Button AgregarTiposAnalisisbutton;
+        private System.Windows.Forms.Button AgregarTiposAnalisisButton;
         private System.Windows.Forms.Button RemoverButton;
+        private System.Windows.Forms.ErrorProvider MyErrorProvider;
     }
 }

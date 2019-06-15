@@ -9,7 +9,7 @@ using RegistroAnalisis.DAL;
 using RegistroAnalisis.Entidades;
 using RegistroAnalisis.BLL;
 
-namespace ProyectoFinalAplicadaI.BLL
+namespace RegistroAnalisis.BLL
 {
     public class TipoAnalalisisBLL
     {
