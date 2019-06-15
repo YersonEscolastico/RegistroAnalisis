@@ -222,9 +222,13 @@ namespace RegistroAnalisis.UI.Registro
         {
             if (detalleDataGridView.Rows.Count > 0 && detalleDataGridView.CurrentRow != null)
             {
+                //remover la fila
                 Detalle.RemoveAt(detalleDataGridView.CurrentRow.Index);
+
+                CargarGrid();
             }
         }
+
 
         private void NuevoButton_Click(object sender, EventArgs e)
         {

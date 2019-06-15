@@ -91,6 +91,7 @@
             // 
             // NuevoButton
             // 
+            this.NuevoButton.Image = global::RegistroAnalisis.Properties.Resources.Nuevo;
             this.NuevoButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.NuevoButton.Location = new System.Drawing.Point(13, 346);
             this.NuevoButton.Margin = new System.Windows.Forms.Padding(2);
@@ -103,11 +104,12 @@
             // 
             // BuscarButton
             // 
+            this.BuscarButton.Image = global::RegistroAnalisis.Properties.Resources.Buscar1;
             this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BuscarButton.Location = new System.Drawing.Point(241, 17);
+            this.BuscarButton.Location = new System.Drawing.Point(234, 17);
             this.BuscarButton.Margin = new System.Windows.Forms.Padding(2);
             this.BuscarButton.Name = "BuscarButton";
-            this.BuscarButton.Size = new System.Drawing.Size(69, 33);
+            this.BuscarButton.Size = new System.Drawing.Size(76, 33);
             this.BuscarButton.TabIndex = 48;
             this.BuscarButton.Text = "Buscar";
             this.BuscarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -116,6 +118,7 @@
             // 
             // EliminarButton
             // 
+            this.EliminarButton.Image = global::RegistroAnalisis.Properties.Resources.Eliminar;
             this.EliminarButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.EliminarButton.Location = new System.Drawing.Point(250, 346);
             this.EliminarButton.Margin = new System.Windows.Forms.Padding(2);
@@ -129,6 +132,7 @@
             // 
             // GuardarButton
             // 
+            this.GuardarButton.Image = global::RegistroAnalisis.Properties.Resources.Guardar;
             this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.GuardarButton.Location = new System.Drawing.Point(125, 346);
             this.GuardarButton.Margin = new System.Windows.Forms.Padding(2);
