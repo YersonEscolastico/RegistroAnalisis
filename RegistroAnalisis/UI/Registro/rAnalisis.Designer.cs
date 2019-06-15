@@ -227,6 +227,7 @@
             this.AgregarTiposAnalisisButton.Size = new System.Drawing.Size(24, 20);
             this.AgregarTiposAnalisisButton.TabIndex = 8;
             this.AgregarTiposAnalisisButton.UseVisualStyleBackColor = true;
+            this.AgregarTiposAnalisisButton.Click += new System.EventHandler(this.AgregarTiposAnalisisButton_Click);
             // 
             // RemoverButton
             // 

@@ -230,5 +230,11 @@ namespace RegistroAnalisis.UI.Registro
         {
             Limpiar();
         }
+
+        private void AgregarTiposAnalisisButton_Click(object sender, EventArgs e)
+        {
+            rTiposAnalisis frm = new rTiposAnalisis();
+            frm.ShowDialog();
+        }
     }
 }
