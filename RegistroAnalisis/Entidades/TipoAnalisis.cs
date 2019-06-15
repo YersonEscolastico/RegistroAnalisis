@@ -13,6 +13,7 @@ namespace RegistroAnalisis.Entidades
         public int TipoId { get; set; }
         public string Descripcion { get; set; }
 
+
         public TipoAnalisis()
         {
             TipoId = 0;

@@ -35,6 +35,7 @@ namespace RegistroAnalisis.BLL
             return paso;
         }
 
+
         public static bool Modificar(Analisis analisis)
         {
             bool paso = false;
@@ -63,6 +64,7 @@ namespace RegistroAnalisis.BLL
 
         }
 
+
         public static bool Eliminar(int id)
         {
             bool paso = false;
@@ -83,6 +85,7 @@ namespace RegistroAnalisis.BLL
             }
             return paso;
         }
+
 
         public static Analisis Buscar(int id)
         {

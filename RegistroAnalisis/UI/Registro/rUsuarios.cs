@@ -21,26 +21,6 @@ namespace RegistroAnalisis.UI.Registro
             InitializeComponent();
         }
 
-
-        public static bool NoRepetido(string descripcion)
-        {
-            bool paso = false;
-            Contexto db = new Contexto();
-            try
-            {
-                if (db.Usuarios.Any(p => p.Usuario.Equals(descripcion)))
-                {
-                    paso = true;
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            return paso;
-        }
-
-
         private void Limpiar()
         {
             IdnumericUpDown.Value = 0;
@@ -53,6 +33,12 @@ namespace RegistroAnalisis.UI.Registro
             MyErrorProvider.Clear();
 
 
+        }
+
+
+        private void NuevoButton_Click(object sender, EventArgs e)
+        {
+            Limpiar();
         }
 
         private Usuarios LlenaClase()
@@ -78,12 +64,6 @@ namespace RegistroAnalisis.UI.Registro
             ClavetextBox.Text = usuario.Clave;
             UsuariotextBox.Text = usuario.Usuario;
             FechaIngresodateTimePicker.Value = usuario.FechaIngreso;
-
-        }
-        private bool ExisteEnLaBaseDeDatos()
-        {
-            Usuarios usuario = UsuariosBLL.Buscar((int)IdnumericUpDown.Value);
-            return (usuario != null);
 
         }
 
@@ -155,7 +135,6 @@ namespace RegistroAnalisis.UI.Registro
             return paso;
         }
 
-
         private void GuardarButton_Click(object sender, EventArgs e)
         {
             Usuarios usuario;
@@ -189,6 +168,12 @@ namespace RegistroAnalisis.UI.Registro
             Limpiar();
         }
 
+        private bool ExisteEnLaBaseDeDatos()
+        {
+            Usuarios usuario = UsuariosBLL.Buscar((int)IdnumericUpDown.Value);
+            return (usuario != null);
+
+        }
 
 
         private void BuscarButton_Click(object sender, EventArgs e)
@@ -203,7 +188,6 @@ namespace RegistroAnalisis.UI.Registro
 
             if (usuario != null)
             {
-                MessageBox.Show("Usuario encontrado");
                 LlenaCampo(usuario);
 
             }
@@ -231,10 +215,28 @@ namespace RegistroAnalisis.UI.Registro
             }
         }
 
+        public static bool NoRepetido(string descripcion)
+        {
+            bool paso = false;
+            Contexto db = new Contexto();
+            try
+            {
+                if (db.Usuarios.Any(p => p.Usuario.Equals(descripcion)))
+                {
+                    paso = true;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("!Ya existe otro campo con ese nombre!");
+            }
+            return paso;
+        }
+
+
         private void NivelUsuariocomboBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
         }
-
     }
 }

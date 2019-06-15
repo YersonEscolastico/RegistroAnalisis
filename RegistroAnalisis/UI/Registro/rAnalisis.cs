@@ -38,6 +38,11 @@ namespace RegistroAnalisis.UI.Registro
 
         }
 
+        private void NuevoButton_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
 
         private Analisis LlenaClase()
         {
@@ -82,33 +87,6 @@ namespace RegistroAnalisis.UI.Registro
 
         }
 
-        private void BuscarButton_Click(object sender, EventArgs e)
-        {
-            int id;
-            Analisis analisis = new Analisis();
-
-            int.TryParse(IdnumericUpDown.Text, out id);
-            Limpiar();
-
-            analisis = AnalisisBLL.Buscar(id);
-
-            if (analisis != null)
-            {
-                MessageBox.Show("Producto encontrado");
-                LlenaCampo(analisis);
-
-            }
-            else
-            {
-                MessageBox.Show("Producto no existe");
-            }
-        }
-
-        private void CargarGrid()
-        {
-            detalleDataGridView.DataSource = null;
-            detalleDataGridView.DataSource = Detalle;
-        }
 
         private bool Validar()
         {
@@ -140,29 +118,6 @@ namespace RegistroAnalisis.UI.Registro
                 paso = false;
             }
             return paso;
-
-        }
-
-        private void EliminarButton_Click(object sender, EventArgs e)
-        {
-            MyErrorProvider.Clear();
-            int id;
-            int.TryParse(IdnumericUpDown.Text, out id);
-            Limpiar();
-            if (AnalisisBLL.Eliminar(id))
-            {
-                MessageBox.Show("Eliminado");
-            }
-            else
-            {
-                MyErrorProvider.SetError(IdnumericUpDown, "No se puede elimina, porque no existe");
-            }
-        }
-
-        private bool ExisteEnLaBaseDeDatos()
-        {
-            Analisis analisis = AnalisisBLL.Buscar((int)IdnumericUpDown.Value);
-            return (analisis != null);
 
         }
 
@@ -201,6 +156,52 @@ namespace RegistroAnalisis.UI.Registro
             Limpiar();
         }
 
+
+        private bool ExisteEnLaBaseDeDatos()
+        {
+            Analisis analisis = AnalisisBLL.Buscar((int)IdnumericUpDown.Value);
+            return (analisis != null);
+
+        }
+
+        private void BuscarButton_Click(object sender, EventArgs e)
+        {
+            int id;
+            Analisis analisis = new Analisis();
+
+            int.TryParse(IdnumericUpDown.Text, out id);
+            Limpiar();
+
+            analisis = AnalisisBLL.Buscar(id);
+
+            if (analisis != null)
+            {
+                LlenaCampo(analisis);
+
+            }
+            else
+            {
+                MessageBox.Show("Producto no existe");
+            }
+        }
+
+        private void EliminarButton_Click(object sender, EventArgs e)
+        {
+            MyErrorProvider.Clear();
+            int id;
+            int.TryParse(IdnumericUpDown.Text, out id);
+            Limpiar();
+            if (AnalisisBLL.Eliminar(id))
+            {
+                MessageBox.Show("Eliminado");
+            }
+            else
+            {
+                MyErrorProvider.SetError(IdnumericUpDown, "No se puede elimina, porque no existe");
+            }
+        }
+
+
         private void Agregarbutton_Click(object sender, EventArgs e)
         {
             if (detalleDataGridView.DataSource != null)
@@ -229,10 +230,10 @@ namespace RegistroAnalisis.UI.Registro
             }
         }
 
-
-        private void NuevoButton_Click(object sender, EventArgs e)
+        private void CargarGrid()
         {
-            Limpiar();
+            detalleDataGridView.DataSource = null;
+            detalleDataGridView.DataSource = Detalle;
         }
 
         private void AgregarTiposAnalisisButton_Click(object sender, EventArgs e)

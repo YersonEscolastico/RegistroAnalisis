@@ -14,7 +14,6 @@ namespace RegistroAnalisis.BLL
     public class TipoAnalalisisBLL
     {
 
-
         public static bool Guardar(TipoAnalisis tipoanalisis)
         {
             bool paso = false;
@@ -36,6 +35,7 @@ namespace RegistroAnalisis.BLL
             }
             return paso;
         }
+
 
         public static bool Modificar(TipoAnalisis tipoanalisis)
         {
@@ -59,6 +59,7 @@ namespace RegistroAnalisis.BLL
 
         }
 
+
         public static bool Eliminar(int id)
         {
             bool paso = false;
@@ -79,6 +80,7 @@ namespace RegistroAnalisis.BLL
             }
             return paso;
         }
+
 
         public static TipoAnalisis Buscar(int id)
         {

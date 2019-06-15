@@ -30,6 +30,11 @@ namespace RegistroAnalisis.UI.Registro
 
         }
 
+        private void Nuevobutton_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
         public TipoAnalisis LlenaClase()
         {
             TipoAnalisis tipoanalisis = new TipoAnalisis();
@@ -46,32 +51,7 @@ namespace RegistroAnalisis.UI.Registro
 
         }
 
-        private bool ExisteEnLaBaseDeDatos()
-        {
-            TipoAnalisis tipoanalisis = TipoAnalalisisBLL.Buscar((int)IdnumericUpDown.Value);
-            return (tipoanalisis != null);
-
-        }
-
-        public static bool NoRepetido(string descripcion)
-        {
-            bool paso = false;
-            Contexto db = new Contexto();
-            try
-            {
-                if (db.TipoAnalisis.Any(p => p.Descripcion.Equals(descripcion)))
-                {
-                    paso = true;
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            return paso;
-        }
-
-        private bool ValidarCampos()
+        private bool Validar()
         {
             bool paso = true;
             if (DescripciontextBox.Text == string.Empty)
@@ -90,31 +70,13 @@ namespace RegistroAnalisis.UI.Registro
             return paso;
         }
 
- 
-
-        private void Eliminarbutton_Click(object sender, EventArgs e)
-        {
-            MyErrorProvider.Clear();
-            int id;
-            int.TryParse(IdnumericUpDown.Text, out id);
-            Limpiar();
-            if (TipoAnalalisisBLL.Eliminar(id))
-            {
-                MessageBox.Show("Eliminado");
-            }
-            else
-            {
-                MyErrorProvider.SetError(IdnumericUpDown, "No se puede eliminar, porque no existe");
-            }
-        }
-
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
             TipoAnalisis tipoanalisis;
             bool paso = false;
 
 
-            if (!ValidarCampos())
+            if (!Validar())
                 return;
 
             tipoanalisis = LlenaClase();
@@ -145,10 +107,13 @@ namespace RegistroAnalisis.UI.Registro
 
         }
 
-        private void Nuevobutton_Click(object sender, EventArgs e)
+        private bool ExisteEnLaBaseDeDatos()
         {
-            Limpiar();
+            TipoAnalisis tipoanalisis = TipoAnalalisisBLL.Buscar((int)IdnumericUpDown.Value);
+            return (tipoanalisis != null);
+
         }
+
 
         private void BuscarButton_Click_1(object sender, EventArgs e)
         {
@@ -163,7 +128,6 @@ namespace RegistroAnalisis.UI.Registro
 
             if (tipoanalisis != null)
             {
-                MessageBox.Show("ubicacion encontrada");
                 LlenaCampo(tipoanalisis);
 
             }
@@ -171,6 +135,41 @@ namespace RegistroAnalisis.UI.Registro
             {
                 MessageBox.Show("ubicacion no encontrada");
             }
+        }
+
+        private void Eliminarbutton_Click(object sender, EventArgs e)
+        {
+            MyErrorProvider.Clear();
+            int id;
+            int.TryParse(IdnumericUpDown.Text, out id);
+            Limpiar();
+            if (TipoAnalalisisBLL.Eliminar(id))
+            {
+                MessageBox.Show("Eliminado");
+            }
+            else
+            {
+                MyErrorProvider.SetError(IdnumericUpDown, "No se puede eliminar, porque no existe");
+            }
+        }
+
+
+        public static bool NoRepetido(string descripcion)
+        {
+            bool paso = false;
+            Contexto db = new Contexto();
+            try
+            {
+                if (db.TipoAnalisis.Any(p => p.Descripcion.Equals(descripcion)))
+                {
+                    paso = true;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return paso;
         }
     }
 }

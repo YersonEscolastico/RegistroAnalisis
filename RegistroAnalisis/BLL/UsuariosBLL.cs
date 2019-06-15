@@ -13,7 +13,6 @@ namespace RegistroAnalisis.BLL
 {
     public class UsuariosBLL
     {
-
         public static bool Guardar(Usuarios usuario)
         {
             bool paso = false;
@@ -35,6 +34,7 @@ namespace RegistroAnalisis.BLL
             }
             return paso;
         }
+
 
         public static bool Modificar(Usuarios usuario)
         {
@@ -58,6 +58,7 @@ namespace RegistroAnalisis.BLL
 
         }
 
+
         public static bool Eliminar(int id)
         {
             bool paso = false;
@@ -78,6 +79,7 @@ namespace RegistroAnalisis.BLL
             }
             return paso;
         }
+
 
         public static Usuarios Buscar(int id)
         {
