@@ -5,6 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using RegistroAnalisis.DAL;
 using RegistroAnalisis.Entidades;
 
@@ -26,7 +27,7 @@ namespace RegistroAnalisis.BLL
             }
             catch (Exception)
             {
-                throw;
+                MessageBox.Show("No se pudo guardar Guardar");
             }
             finally
             {
@@ -77,7 +78,7 @@ namespace RegistroAnalisis.BLL
             }
             catch (Exception)
             {
-                throw;
+                MessageBox.Show("No se pudo eliminar");
             }
             finally
             {
@@ -101,7 +102,7 @@ namespace RegistroAnalisis.BLL
             }
             catch (Exception)
             {
-                throw;
+                MessageBox.Show("No se pudo buscar");
             }
             finally
             {
@@ -123,7 +124,7 @@ namespace RegistroAnalisis.BLL
             }
             catch
             {
-                throw;
+                MessageBox.Show("NO se pudo listar");
             }
             finally
             {

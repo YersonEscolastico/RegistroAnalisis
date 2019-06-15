@@ -211,7 +211,7 @@ namespace RegistroAnalisis.UI.Registro
                 new AnalisisDetalle(
                     id: 0,
                     analisisID: (int)IdnumericUpDown.Value,
-                    tipoID: Convert.ToInt32(TipoAnalisiscomboBox.Text),
+                    tipoID: Convert.ToInt32(TipoAnalisiscomboBox.SelectedValue),
                     resultado: ResultadotextBox.Text
                     )
                );
