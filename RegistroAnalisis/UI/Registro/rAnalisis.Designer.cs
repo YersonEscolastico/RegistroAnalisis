@@ -198,6 +198,7 @@
             this.ResultadotextBox.Name = "ResultadotextBox";
             this.ResultadotextBox.Size = new System.Drawing.Size(99, 20);
             this.ResultadotextBox.TabIndex = 2;
+            this.ResultadotextBox.TextChanged += new System.EventHandler(this.ResultadotextBox_TextChanged);
             // 
             // label5
             // 

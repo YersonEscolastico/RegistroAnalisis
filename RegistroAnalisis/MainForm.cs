@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RegistroAnalisis.UI.Registro;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,19 @@ namespace RegistroAnalisis
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void UsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rUsuarios frm = new rUsuarios();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void AnalisisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rAnalisis frm = new rAnalisis();
+            frm.Show();
         }
     }
 }

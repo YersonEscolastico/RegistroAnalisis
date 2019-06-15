@@ -73,11 +73,11 @@ namespace RegistroAnalisis.UI.Registro
 
         private void LLenarComboBoxx()
         {
-            var listado2 = new List<TipoAnalisis>();
-            listado2 = TipoAnalalisisBLL.GetList(l => true);
-            TipoAnalisiscomboBox.DataSource = listado2;
-            TipoAnalisiscomboBox.DisplayMember = "TipoAnalisisId";
-            TipoAnalisiscomboBox.ValueMember = "TipoAnalisisId";
+            var lista2 = new List<TipoAnalisis>();
+            lista2 = TipoAnalalisisBLL.GetList(l => true);
+            TipoAnalisiscomboBox.DataSource = lista2;
+            TipoAnalisiscomboBox.DisplayMember = "TipoId";
+            TipoAnalisiscomboBox.ValueMember = "TipoId";
 
 
         }

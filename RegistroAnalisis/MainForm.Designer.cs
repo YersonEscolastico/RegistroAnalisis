@@ -59,12 +59,14 @@
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
             this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
+            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.UsuariosToolStripMenuItem_Click);
             // 
             // analisisToolStripMenuItem
             // 
             this.analisisToolStripMenuItem.Name = "analisisToolStripMenuItem";
             this.analisisToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.analisisToolStripMenuItem.Text = "Analisis";
+            this.analisisToolStripMenuItem.Click += new System.EventHandler(this.AnalisisToolStripMenuItem_Click);
             // 
             // MainForm
             // 

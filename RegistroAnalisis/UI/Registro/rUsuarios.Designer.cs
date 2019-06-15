@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label8 = new System.Windows.Forms.Label();
             this.ConfirmarClavetextBox = new System.Windows.Forms.TextBox();
             this.NivelUsuariocomboBox = new System.Windows.Forms.ComboBox();
@@ -48,7 +49,9 @@
             this.UsuariotextBox = new System.Windows.Forms.TextBox();
             this.EmailtextBox = new System.Windows.Forms.TextBox();
             this.NombretextBox = new System.Windows.Forms.TextBox();
+            this.MyErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label8
@@ -84,6 +87,7 @@
             this.NivelUsuariocomboBox.Name = "NivelUsuariocomboBox";
             this.NivelUsuariocomboBox.Size = new System.Drawing.Size(204, 21);
             this.NivelUsuariocomboBox.TabIndex = 32;
+            this.NivelUsuariocomboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NivelUsuariocomboBox_KeyPress);
             // 
             // NuevoButton
             // 
@@ -108,6 +112,7 @@
             this.BuscarButton.Text = "Buscar";
             this.BuscarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BuscarButton.UseVisualStyleBackColor = true;
+            this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
             // 
             // EliminarButton
             // 
@@ -120,6 +125,7 @@
             this.EliminarButton.Text = "Eliminar";
             this.EliminarButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.EliminarButton.UseVisualStyleBackColor = true;
+            this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
             // 
             // GuardarButton
             // 
@@ -132,6 +138,7 @@
             this.GuardarButton.Text = "Guardar";
             this.GuardarButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.GuardarButton.UseVisualStyleBackColor = true;
+            this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click);
             // 
             // FechaIngresodateTimePicker
             // 
@@ -253,6 +260,10 @@
             this.NombretextBox.Size = new System.Drawing.Size(203, 20);
             this.NombretextBox.TabIndex = 30;
             // 
+            // MyErrorProvider
+            // 
+            this.MyErrorProvider.ContainerControl = this;
+            // 
             // rUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -281,6 +292,7 @@
             this.Name = "rUsuarios";
             this.Text = "rUsuarios";
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,5 +320,6 @@
         private System.Windows.Forms.TextBox UsuariotextBox;
         private System.Windows.Forms.TextBox EmailtextBox;
         private System.Windows.Forms.TextBox NombretextBox;
+        private System.Windows.Forms.ErrorProvider MyErrorProvider;
     }
 }

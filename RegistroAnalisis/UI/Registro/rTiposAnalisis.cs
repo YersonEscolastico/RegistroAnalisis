@@ -90,28 +90,7 @@ namespace RegistroAnalisis.UI.Registro
             return paso;
         }
 
-        private void BuscarButton_Click(object sender, EventArgs e)
-        {
-            int id;
-
-            TipoAnalisis tipoanalisis = new TipoAnalisis();
-
-            int.TryParse(IdnumericUpDown.Text, out id);
-            Limpiar();
-
-            tipoanalisis = TipoAnalalisisBLL.Buscar(id);
-
-            if (tipoanalisis != null)
-            {
-                MessageBox.Show("ubicacion encontrada");
-                LlenaCampo(tipoanalisis);
-
-            }
-            else
-            {
-                MessageBox.Show("ubicacion no encontrada");
-            }
-        }
+ 
 
         private void Eliminarbutton_Click(object sender, EventArgs e)
         {
@@ -169,6 +148,29 @@ namespace RegistroAnalisis.UI.Registro
         private void Nuevobutton_Click(object sender, EventArgs e)
         {
             Limpiar();
+        }
+
+        private void BuscarButton_Click_1(object sender, EventArgs e)
+        {
+            int id;
+
+            TipoAnalisis tipoanalisis = new TipoAnalisis();
+
+            int.TryParse(IdnumericUpDown.Text, out id);
+            Limpiar();
+
+            tipoanalisis = TipoAnalalisisBLL.Buscar(id);
+
+            if (tipoanalisis != null)
+            {
+                MessageBox.Show("ubicacion encontrada");
+                LlenaCampo(tipoanalisis);
+
+            }
+            else
+            {
+                MessageBox.Show("ubicacion no encontrada");
+            }
         }
     }
 }
