@@ -15,12 +15,14 @@ namespace RegistroAnalisis.Entidades
         public int UsuarioId { get; set; }
         public DateTime Fecha { get; set; }
 
+        public virtual List<AnalisisDetalle> detalle { get; set; }
 
         public Analisis()
         {
             AnalisisId = 0;
             UsuarioId = 0;
             Fecha = DateTime.Now;
+            detalle = new List<AnalisisDetalle>();
         }
     }
 }
